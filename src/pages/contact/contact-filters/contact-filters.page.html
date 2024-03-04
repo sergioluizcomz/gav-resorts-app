@@ -1,0 +1,53 @@
+<ion-content padding class="contact-filters-page">
+
+	<custom-header
+	title="Filtro de busca"
+	subtitle="Preencha os campos abaixo para aplicar o filtro em sua lista de contatos"
+	[modal]="true">
+	</custom-header>
+
+	<form [customForm]="form" *ngIf="form" [formGroup]="form" class="custom-form-wrapper">
+
+		<div class="custom-simple-message mb-24 font-16 bold-5">Ordenação:</div>
+
+		<custom-radio
+        [form]="form"
+        fcName="ordination"
+        [options]="ordinationOptions"
+        [inline]="false"
+		[grid]="true"
+        ></custom-radio>
+
+		<div class="custom-simple-message mb-24 font-16 bold-5">Dados do Contato:</div>
+
+		<custom-input
+		[fc]="form.get('start_date')"
+		label="Data mínima de criação"
+		type="date"
+		[minDate]="minStartDate"
+		[maxDate]="maxStartDate"
+		></custom-input>
+
+		<custom-input
+		[fc]="form.get('end_date')"
+		label="Data máxima de criação"
+		type="date"
+		[minDate]="minEndDate"
+		[maxDate]="maxEndDate"
+		></custom-input>
+
+		<div class="custom-buttons-wrapper mt-50">
+			<div class="buttons-line">
+				<button (click)="clear()" type="button" class="custom-button-md outline half">
+					<span>Limpar</span>
+				</button>
+
+				<button (click)="submit()" type="submit" class="custom-button-md primary half">
+					<span>Aplicar</span>
+				</button>
+			</div>
+		</div>
+		
+	</form>
+
+</ion-content>

@@ -1,0 +1,36 @@
+<ion-content padding class="home-page" [class.has-tab-bar]="true">
+
+	<custom-header
+    [fixedHeaderEffect]="false"
+	[preventDismiss]="true"
+    title="GAV Resorts"
+    subtitle="Uma das maiores empresas de multipropriedade do país e referência no setor"
+    ></custom-header>
+
+	<div class="page-wrapper limit-width">
+
+		<h1>Bem Vindo!</h1>
+		<p>Acompanhe abaixo as funcionalidades disponíveis para o seu usuário.</p>
+
+		<div class="custom-menu-list">
+
+			<div class="custom-menu-item {{ item.class }}" *ngFor="let item of menuItems; let i = index;" [class.disabled]="!item.is_active" [class.d-none]="!item.is_visible" (click)="openPage(item)">
+				<button type="button" ion-button [disabled]="!item.is_active">
+					<svg-icon src="../../assets/imgs/icons/{{item.icon}}.svg" class="custom-icon"></svg-icon>
+				</button>
+
+				<button type="button" ion-button [disabled]="!item.is_active">
+					<div>{{ item.name }}</div>
+					<div>{{ item.desc }}</div>
+				</button>
+			</div>
+
+		</div>
+
+		<div class="custom-version">Versão {{ versionService.version || "-" }}</div>
+
+	</div>
+
+</ion-content>
+
+<custom-tab-bar></custom-tab-bar>

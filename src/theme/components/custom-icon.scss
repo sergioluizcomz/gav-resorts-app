@@ -1,0 +1,36 @@
+.custom-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+
+    &.sm {
+        width: 16px;
+        height: 16px;
+    }
+
+    &.select-arrow {
+        width: 14px;
+        height: 14px;
+        background-color: unset;
+    }
+
+    svg {
+        height: 100% !important;
+        width: auto !important;
+    }
+
+    &.primary svg path { stroke: map-get($colors, "primary") !important }
+    &.secondary svg path { stroke: map-get($colors, "secondary") !important }
+    &.danger svg path { stroke: map-get($colors, "danger") !important }
+    &.warning svg path { stroke: map-get($colors, "warning") !important }
+    &.light svg path { stroke: map-get($colors, "light") !important }
+    &.light-gray svg path { stroke: map-get($colors, "light-gray") !important }
+    &.gray svg path { stroke: map-get($colors, "light-gray") !important }
+    &.dark svg path { stroke: map-get($colors, "dark") !important }
+    &.custom-gray-3 svg path { stroke: map-get($colors, "custom-gray-3") !important }
+    &.custom-gray-4 svg path { stroke: map-get($colors, "custom-gray-4") !important }
+    &.white svg path { stroke: #fff !important }
+
+}

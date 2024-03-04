@@ -1,0 +1,44 @@
+<div class="custom-togglebox-wrapper" [class.is-checked]="isChecked" [class.inline]="inline">
+
+    <div class="label-group mb-5" *ngIf="!inline">
+        <label>{{ label }}</label>
+    </div>
+
+    <div class="input-wrapper">
+
+        <div class="label-group mr-auto" *ngIf="inline == 'left'">
+            <label><i *ngIf="iconLabel" [class]="iconLabel"></i>{{ label }}</label>
+        </div>
+
+        <div class="input-group" [class.ml-15]="inline == 'left'" [class.mr-15]="inline == 'right'">
+            <input type="checkbox"
+            [checked]="isChecked"
+            [(ngModel)]="inputValue"
+            (change)="onChange()" (ngModelChange)="onChange(true)" (focusin)="onFocusIn($event)"
+            [class]="fc?.valid ? 'ng-valid' : 'ng-invalid'"
+            [class.ng-valid]="fc?.valid || isChecked"
+            [class.ng-invalid]="!fc?.valid"
+            [class.ng-touched]="(fc?.touched || isChecked) && (everHadAValue || isFormSubmitted)"
+            [class.ng-untouched]="!fc?.touched && (everHadAValue || isFormSubmitted)"
+            [class.ng-dirty]="fc?.dirty || isChecked">
+        </div>
+
+        <div class="label-group ml-auto" *ngIf="inline == 'right'">
+            <label><i *ngIf="iconLabel" [class]="iconLabel"></i>{{ label }}</label>
+        </div>
+
+    </div>
+
+    <div class="info-wrapper" *ngIf="info || (fc && fc.dirty && fc.invalid && fc.touched && (everHadAValue || isFormSubmitted))">
+        <div class="info-message" *ngIf="info">
+            <i class="fal fa-circle-question"></i>
+            <span>{{ info }}</span>
+        </div>
+
+		<div class="error-message" *ngIf="fc && fc.dirty && fc.invalid && fc.touched && (everHadAValue || isFormSubmitted)">
+			<i class="fal fa-circle-exclamation"></i>
+            <span>{{ (fc && fc.errors && fc.errors["message"] ? fc.errors["message"] || null : null) || "Este campo está incorreto." }}</span>
+		</div>
+	</div>
+
+</div>

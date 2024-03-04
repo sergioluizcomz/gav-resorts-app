@@ -1,0 +1,16 @@
+.map-page {
+
+    .modal-content {
+        width: 100%;
+        height: 250px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    
+    ion-modal {
+        --height: auto;
+    }
+
+}

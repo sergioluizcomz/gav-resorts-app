@@ -1,0 +1,100 @@
+<div class="custom-input-wrapper" [class.disabled]="disabled">
+	<div class="label-group" [class.d-none]="!label">
+		<label class="{{ labelClass }}">{{ label || "" }}</label>
+	</div>
+	<div class="input-wrapper" [class.icon-outside-absolute]="iconOutsideAbsolute">
+		<div class="input-group"
+        [class.icon-left-side]="iconInsideLeftSide"
+        [class.icon-inside]="(iconInside || type == 'select') && type !== 'textarea'"
+        (click)='onClickSelect()'>
+
+            <input *ngIf="type === 'select'" type="text"
+            [(ngModel)]="forceEmptyValue ? null : selectValueName"
+            (change)="onChange()" (ngModelChange)="onChange(true)" (keypress)="eventHandler($event)"
+            [placeholder]="placeholder"
+            [pattern]="pattern"
+            [disabled]="disabled"
+            readonly
+            [class]="fc?.valid ? 'ng-valid' : 'ng-invalid'"
+            [class.ng-valid]="fc?.valid"
+            [class.ng-invalid]="!fc?.valid"
+            [class.ng-touched]="fc?.touched && (everHadAValue || isFormSubmitted)"
+            [class.ng-untouched]="!fc?.touched && (everHadAValue || isFormSubmitted)"
+            [class.ng-dirty]="fc?.dirty"
+            [attr.inputmode]="inputMode">
+
+			<input *ngIf="type !== 'textarea' && type !== 'select' && type !== 'date'" [type]="type"
+            [(ngModel)]="inputValue"
+            (change)="onChange()" (ngModelChange)="onChange(true)" (focusout)="onFocusOut()" (focusin)="onFocusIn($event)" (keypress)="eventHandler($event)"
+            [placeholder]="placeholder"
+            [disabled]="disabled"
+            thousandSeparator="." 
+            decimalMarker=","
+            [class.ng-valid]="fc?.valid"
+            [class.ng-invalid]="!fc?.valid"
+            [class.ng-touched]="fc?.touched && (everHadAValue || isFormSubmitted)"
+            [class.ng-untouched]="!fc?.touched && (everHadAValue || isFormSubmitted)"
+            [class.ng-dirty]="fc?.dirty"
+            [mask]="mask ? masks[mask] || mask : null"
+            [attr.inputmode]="inputMode">
+
+            <textarea *ngIf="type === 'textarea'"
+            [(ngModel)]="inputValue"
+            (change)="onChange()" (ngModelChange)="onChange(true)" (focusout)="onFocusOut()" (focusin)="onFocusIn($event)" (keypress)="eventHandler($event)"
+            [placeholder]="placeholder"
+            [disabled]="disabled"
+            [class]="fc?.valid ? 'ng-valid' : 'ng-invalid'"
+            [class.ng-valid]="fc?.valid"
+            [class.ng-invalid]="!fc?.valid"
+            [class.ng-touched]="fc?.touched"
+            [class.ng-untouched]="!fc?.touched"
+            [class.ng-dirty]="fc?.dirty"
+            [mask]="mask ? masks[mask] || mask : null"
+            [attr.inputmode]="inputMode"
+            [rows]="rowsQty"
+            [ngStyle]="{'resize': resize ? 'vertical' : 'none' }"></textarea>
+
+            <input *ngIf="type === 'date'" type="tel"
+            [(ngModel)]="inputValue"
+            (change)="onChange()" (ngModelChange)="onChange(true)" (focusout)="onFocusOut()" (focusin)="onFocusIn($event)" (keypress)="eventHandler($event)"
+            [placeholder]="placeholder"
+            [disabled]="disabled"
+            thousandSeparator="." 
+            decimalMarker=","
+            [class.ng-valid]="fc?.valid"
+            [class.ng-invalid]="!fc?.valid"
+            [class.ng-touched]="fc?.touched && (everHadAValue || isFormSubmitted)"
+            [class.ng-untouched]="!fc?.touched && (everHadAValue || isFormSubmitted)"
+            [class.ng-dirty]="fc?.dirty"
+            [mask]="masks['date']"
+            [attr.inputmode]="inputMode">
+
+            <!-- TODO Melhorar para não criar elemento sem src -->
+			<div class="icon-group" *ngIf="iconInside && type !== 'textarea'">
+                <svg-icon *ngIf="type !== 'date'" src="../../assets/imgs/icons/{{iconInside}}.svg" class="custom-icon sm {{iconInsideColor}}" [class.select-arrow]="type == 'select' && iconInside == 'nav-arrow-down'" [class.d-none]="iconInside == 'eye-open' || iconInside == 'eye-closed'"></svg-icon>
+                <svg-icon *ngIf="type === 'date' && disabled" src="../../assets/imgs/icons/{{iconInside}}.svg" class="custom-icon sm {{iconInsideColor}}"></svg-icon>
+                <svg-icon *ngIf="type === 'date' && !disabled" src="../../assets/imgs/icons/{{iconInside}}.svg" class="custom-icon sm {{iconInsideColor}}" [owlDateTimeTrigger]="dt"></svg-icon>
+                <svg-icon (click)='onClickPasswordEye()' src="../../assets/imgs/icons/eye-open.svg" class="custom-icon sm {{iconInsideColor}}" [class.d-none]="iconInside != 'eye-open'"></svg-icon>
+                <svg-icon (click)='onClickPasswordEye()' src="../../assets/imgs/icons/eye-closed.svg" class="custom-icon sm {{iconInsideColor}}" [class.d-none]="iconInside != 'eye-closed'"></svg-icon>
+			</div>
+		</div>
+
+        <div class="icon-group" *ngIf="iconOutside && type !== 'date'" (click)="onClickOutsideButton()">
+            <svg-icon src="../../assets/imgs/icons/{{iconOutside}}.svg" class="custom-icon {{iconOutsideColor}}"></svg-icon>
+        </div>
+	</div>
+
+	<div class="info-wrapper" [class.mt-8]="info || (fc && fc.dirty && fc.invalid && fc.touched && (everHadAValue || isFormSubmitted))">
+        <div class="info-message" *ngIf="info">
+            <i class="{{ infoIcon }}" ></i>
+            <span>{{ info }}</span>
+        </div>
+
+		<div class="error-message" *ngIf="fc && fc.dirty && fc.invalid && fc.touched && (everHadAValue || isFormSubmitted)">
+			<i class="fal fa-circle-exclamation"></i>
+            <span>{{ (fc && fc.errors && fc.errors["message"] ? fc.errors["message"] || null : null) || "Este campo está incorreto." }}</span>
+		</div>
+	</div>
+    <input type="hidden" [min]="minDateAux" [max]="maxDateAux" [owlDateTime]="dt" [(ngModel)]="owlDate" (ngModelChange)="onOwlDateChange()">
+    <owl-date-time #dt pickerMode="dialog" pickerType="calendar"></owl-date-time>
+</div>

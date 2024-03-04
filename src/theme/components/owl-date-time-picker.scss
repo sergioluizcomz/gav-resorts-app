@@ -1,0 +1,101 @@
+.cdk-overlay-backdrop.cdk-overlay-dark-backdrop.cdk-overlay-backdrop-showing {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.owl-dt-dialog {
+    padding: 20px;
+    width: 100%;
+    max-width: 600px !important;
+
+    th.owl-dt-calendar-table-divider {
+
+        &::after {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+    }
+
+    .owl-dt-calendar-table .owl-dt-calendar-cell-active:focus>.owl-dt-calendar-cell-content:not(.owl-dt-calendar-cell-selected), .owl-dt-calendar-table :not(.owl-dt-calendar-cell-disabled):hover>.owl-dt-calendar-cell-content:not(.owl-dt-calendar-cell-selected) {
+        background-color: unset !important;
+    }
+
+    owl-dialog-container {
+        border-radius: 14px;
+        box-shadow: $main-box-shadow;
+        
+        owl-date-time-container {
+            max-height: unset;
+            
+            owl-date-time-calendar {
+                width: 100% !important;
+                height: auto !important;
+                min-width: unset !important;
+                max-width: unset !important;
+                min-height: unset !important;
+                max-height: unset !important;
+
+                div.owl-dt-calendar-main {
+                    flex: unset;
+
+                    owl-date-time-month-view {
+                        display: flex;
+                        align-items: center;
+                    }
+
+                }
+
+                td.owl-dt-calendar-cell {
+
+                    span.owl-dt-calendar-cell-content {
+                        font-size: 14px;
+                        color: #000;
+                        font-weight: 400;
+        
+                        &.owl-dt-calendar-cell-selected {
+                            background-color: map-get($colors, "primary");
+                            color: #fff;
+                        }
+    
+                        &.owl-dt-calendar-cell-today {
+                            border: 1px solid map-get($colors, "custom-gray-2");
+                        }
+    
+                        &.owl-dt-calendar-cell-selected.owl-dt-calendar-cell-today {
+                            box-shadow: unset;
+                            border-color: map-get($colors, "primary");
+                        }
+        
+                    }
+
+                }
+
+            }
+
+            div.owl-dt-container-buttons {
+                height: unset;
+                gap: 10px;
+
+                button {
+                    width: 100%;
+                    padding: 12px 8px;
+
+                    &:first-child {
+                        background-color: rgba(0, 0, 0, 0.1);
+                    }
+                    
+                    span {
+                        background: unset;
+                        font-size: 14px;
+                        font-weight: 400;
+                        color: #000;
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+}

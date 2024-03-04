@@ -1,0 +1,16 @@
+<form [customForm]="form" *ngIf="form" [formGroup]="form" class="custom-form-wrapper">
+	
+	<custom-input
+	[fc]="form.get('search')"
+	type="text"
+	[placeholder]="searchPlaceholder"
+	[searchSelect]="true"
+	iconInside="search"
+	iconInsideColor="light-gray"
+	[iconInsideLeftSide]="true"
+	[iconOutside]="iconOutside"
+	[iconOutsideColor]="iconOutsideColor"
+	[iconOutsideAbsolute]="true"
+	></custom-input>
+	
+</form>

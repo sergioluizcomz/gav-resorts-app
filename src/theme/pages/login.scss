@@ -1,0 +1,88 @@
+ion-content.login-page {
+
+    div.login-header {
+        background: map-get($colors, "primary");
+        border-bottom-right-radius: 30%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        z-index: 200;
+        width: calc(100% + 40px);
+        margin: 0px 0px 60px -20px;
+        padding-top: min(calc(35px + env(safe-area-inset-top)), 55px);
+        padding-inline: 25px;
+        padding-bottom: 15px;
+        box-shadow: $main-box-shadow;
+    
+        .bg-background-water-mark {
+            opacity: 0.13;
+            transform: translate(-50%, 0);
+            position: absolute;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+    
+            .custom-icon {
+                height: 100%;
+                width: auto;
+
+                svg {
+                    width: 100% !important;
+
+                    path {
+                        stroke: map-get($colors, "dark") !important;
+                    }
+
+                }
+
+            }
+            
+        }
+    
+        .login-info {
+            width: 100%;
+            text-align: right;
+    
+            h1, p {
+                color: map-get($colors, "light");
+            }
+    
+            h1 {
+                margin-bottom: 5px;
+            }
+    
+            p {
+                margin-top: unset;
+            }
+    
+        }
+    
+        .login-logo {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 5;
+            transform: translate(0, 50%);
+            background-color: map-get($colors, "background-light");
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+    
+            img {
+                width: 100%;
+                height: auto;
+            }
+    
+        }
+    
+    }
+    
+}

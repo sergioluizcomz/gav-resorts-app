@@ -1,0 +1,17 @@
+<ion-content class="gallery-page">
+
+	<div class="custom-buttons-wrapper">
+		<div class="buttons-line">
+			<button type="button" class="custom-button-icon" (click)="dismiss()">
+				<svg-icon src="../../assets/imgs/icons/close.svg" class="custom-icon sm"></svg-icon>
+			</button>
+		</div>
+	</div>
+
+	<swiper-container [pagination]="true" [options]="{initialSlide: imageIndex}">
+		<swiper-slide *ngFor="let base64 of imageList">
+			<img [src]="base64?.changingThisBreaksApplicationSecurity || base64" alt="">
+		</swiper-slide>
+	</swiper-container>
+
+</ion-content>

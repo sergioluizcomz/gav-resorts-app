@@ -1,0 +1,8 @@
+<div class="custom-tab-bar primary">
+	<div class="tab-bar-content">
+		<button type="button" ion-button class="tab-bar-item" *ngFor="let item of menuItems; let i = index;" [class.d-none]="!item.is_visible" [class.active]="checkItemActive(item)" (click)="openPage(i)">
+			<svg-icon src="../../assets/imgs/icons/{{item.icon}}.svg" class="custom-icon"></svg-icon>
+		</button>
+	</div>
+	<div class="safe-area-bottom"></div>
+</div>

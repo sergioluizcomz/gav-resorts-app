@@ -1,0 +1,67 @@
+<ion-content padding class="contact-info-page">
+
+	<custom-header
+	[fixedHeaderEffect]="false"
+	title="Detalhes do Contato"
+    subtitle="{{ contact ? ('Nº ' + contact.id) : 'Obtendo informações...' }}"
+	[modal]="true">
+    </custom-header>
+
+	<div class="page-wrapper limit-width" *ngIf="contact">
+
+        <div *ngIf="!contact.foto" class="mb-20 align-center">- Contato sem foto disponível -</div>
+
+        <custom-image *ngIf="contact.foto" [src]="contact.foto"></custom-image>
+
+        <div class="mb-20 primary font-16 bold-5">Dados do Contato:</div>
+	
+        <div class="custom-info-wrapper mb-20">
+
+            <div class="custom-info-line">
+                <div>Nº:</div>
+                <div>{{ contact.id || "-" }}</div>
+            </div>
+
+            <div class="custom-info-line">
+                <div>Nome:</div>
+                <div>{{ contact.nome || "-" }}</div>
+            </div>
+
+            <div class="custom-info-line">
+                <div>E-mail:</div>
+                <div>{{ contact.email || "-" }}</div>
+            </div>
+
+            <div class="custom-info-line">
+                <div>Telefone:</div>
+                <div>{{ contact.telefone ? getPhoneFormatted(contact.telefone) : "-" }}</div>
+            </div>
+
+            <div class="custom-info-line">
+                <div>Data de cadastro:</div>
+                <div>{{ contact.dataCadastro | dateBr:"DD/MM/YYYY [às] HH:mm" }}</div>
+            </div>
+
+        </div>
+
+        <div class="custom-buttons-wrapper mt-50">
+			<div class="buttons-line">
+				<button (click)="dismiss('edit')" type="button" class="custom-button-md primary half">
+					<span>Editar</span>
+				</button>
+
+				<button (click)="dismiss('remove')" type="submit" class="custom-button-md danger half">
+					<span>Remover</span>
+				</button>
+			</div>
+
+            <div class="buttons-line">
+				<button (click)="dismiss()" type="button" class="custom-button-md outline full">
+					<span>Voltar</span>
+				</button>
+			</div>
+		</div>
+
+	</div>
+
+</ion-content>

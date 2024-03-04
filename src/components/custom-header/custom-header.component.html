@@ -1,0 +1,51 @@
+<div class="custom-header-page full-background {{ marginBottom ? ('mb-' + marginBottom) : '' }}"
+[class.has-cards]="hasCards"
+[class.has-input]="hasInput"
+[class.has-footer]="footer"
+[class.fixed-header-effect]="fixedHeaderEffect">
+
+	<div class="bg-gradient-full">
+		<div class="bg-background-water-mark" [class.left-side]="preventDismiss">
+			<svg-icon src="../../assets/imgs/icons/airplane.svg" class="custom-icon"></svg-icon>
+		</div>
+	</div>
+	
+	<div class="header-content">
+		<div class="safe-area-left">
+			<div *ngIf="!preventDismiss" class="custom-buttons-wrapper" (click)="leftButtonAction()">
+				<div class="buttons-line">
+					<button type="button" class="custom-button-icon">
+						<svg-icon src="../../assets/imgs/icons/nav-arrow-left.svg" class="custom-icon"></svg-icon>
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="header-title">
+			<span [innerHTML]="title || ''"></span>
+			<span *ngIf="listLength && listLength > 0">{{ listLength }} {{ listLength > 1 ? "registros" : "registro" }}</span>
+		</div>
+
+		<div class="safe-area-right">
+			<div class="custom-buttons-wrapper" *ngIf="rightButtonIcon">
+				<div class="buttons-line">
+					<button type="button" class="custom-button-icon" (click)="rightButtonAction()" [class.is-rotating]="rightButtonIsRotating">
+						<svg-icon src="../../assets/imgs/icons/{{rightButtonIcon}}.svg" class="custom-icon"></svg-icon>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="header-footer" *ngIf="footer">
+		<span>{{ footer }}</span>
+	</div>
+	
+	<div class="header-subtitle" [class.mt-10]="footer" *ngIf="subtitle">
+		<span>{{ subtitle }}</span>
+	</div>
+
+	<!-- Para adicionar botões ou cards de forma dinâmica -->
+	<ng-content></ng-content>
+	
+</div>

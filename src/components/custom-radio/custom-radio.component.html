@@ -1,0 +1,60 @@
+<div class="custom-radio-list" [formGroup]="form" [class.inline]="inline" [class.grid]="grid">
+
+    <div>
+        <div *ngFor="let option of options" class="custom-radio-wrapper" [class.checked]="fc?.value == option.value">
+
+            <div class="input-wrapper">
+
+                <div class="input-group">
+                    <input type="radio" id="{{ 'input-radio' + option.value}}"
+                    [formControlName]="fcName"
+                    [value]="option.value"
+                    (change)="onChange()" (ngModelChange)="onChange(true)"
+                    [class]="fc?.valid ? 'ng-valid' : 'ng-invalid'"
+                    [class.ng-valid]="fc?.valid"
+                    [class.ng-invalid]="!fc?.valid"
+                    [class.ng-touched]="fc?.touched && (everHadAValue || isFormSubmitted)"
+                    [class.ng-untouched]="!fc?.touched && (everHadAValue || isFormSubmitted)"
+                    [class.ng-dirty]="fc?.dirty">
+                </div>
+        
+                <div class="label-group" [class.row]="option?.sideContent">
+
+                    <label for="{{ 'input-radio' + option.value}}">
+                        <svg-icon *ngIf="option.icon_label" src="../../assets/imgs/icons/{{option.icon_label}}.svg" class="custom-icon sm {{option.color ? option.color : 'primary'}}"></svg-icon>
+                        <span [innerHTML]="option.label"></span>
+                    </label>
+
+                    <div class="side-content {{ option.sideContent.type }} {{ option.sideContent.color }}" *ngIf="option?.sideContent?.type">
+                        {{ option.sideContent.text }}
+
+                        <div *ngIf="option.sideContent?.svg" class="item-image">
+                            b
+							{{option.sideContent.svg}}
+						</div>
+
+                        <div *ngIf="option.sideContent?.icon" class="item-image">
+							<svg-icon src="../../assets/imgs/icons/{{option.sideContent?.icon}}.svg" class="custom-icon {{ option.sideContent.color || 'primary' }}"></svg-icon>
+						</div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        
+            <div class="info-wrapper mt-5" *ngIf="option.info">
+                <div class="info-message">
+                    <i class="fal fa-circle-question"></i>
+                    <span>{{ option.info }}</span>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+    
+    <div class="error-message" *ngIf="fc && fc.dirty && fc.invalid && fc.touched && (everHadAValue || isFormSubmitted)">
+        <i class="fal fa-circle-exclamation"></i>
+        <span>{{ (fc && fc.errors && fc.errors["message"] ? fc.errors["message"] || null : null) || "Este campo está incorreto." }}</span>
+    </div>
+</div>

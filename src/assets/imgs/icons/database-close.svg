@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="18.563999"
+   height="19.563999"
+   stroke-width="1.2"
+   viewBox="0 0 18.563999 19.563999"
+   fill="none"
+   color="#000000"
+   version="1.1"
+   id="svg10"
+   sodipodi:docname="database-close.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs14" />
+  <sodipodi:namedview
+     id="namedview12"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="35.166667"
+     inkscape:cx="8.5734597"
+     inkscape:cy="9.6255924"
+     inkscape:window-width="2560"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg10" />
+  <path
+     d="m 13.7213,18.964 2.1213,-2.1213 m 2.1214,-2.1213 -2.1214,2.1213 m 0,0 -2.1213,-2.1213 m 2.1213,2.1213 2.1214,2.1213"
+     stroke="#000000"
+     stroke-width="1.2"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     id="path2" />
+  <path
+     d="m 0.60000002,3.6 v 6 c 0,0 0,3 6.99999998,3 7,0 7,-3 7,-3 v -6"
+     stroke="#000000"
+     stroke-width="1.2"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     id="path4" />
+  <path
+     d="m 7.6,0.60000002 c 7,0 7,2.99999998 7,2.99999998 0,0 0,3 -7,3 -6.99999998,0 -6.99999998,-3 -6.99999998,-3 0,0 0,-2.99999998 6.99999998,-2.99999998 z"
+     stroke="#000000"
+     stroke-width="1.2"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     id="path6" />
+  <path
+     d="m 7.6,18.6 c -6.99999998,0 -6.99999998,-3 -6.99999998,-3 v -6"
+     stroke="#000000"
+     stroke-width="1.2"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     id="path8" />
+</svg>

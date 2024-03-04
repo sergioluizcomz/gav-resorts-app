@@ -1,0 +1,78 @@
+vars:
+  APP_NAME:
+    default: GAV Resorts
+    type: string
+
+  BUNDLE_ID:
+    default: io.ionic.starter
+    type: string
+
+  PACKAGE_NAME:
+    default: io.ionic.starter
+    type: string
+
+  VERSION:
+    default: 1.0.0
+    type: string
+
+  VERSION_CODE:
+    default: 10000 #MAJOR * 10000 + MINOR * 100 + PATCH
+    type: string
+
+platforms:
+
+  android:
+    packageName: $PACKAGE_NAME
+    versionName: $VERSION
+    versionCode: $VERSION_CODE
+
+    manifest:
+      - file: AndroidManifest.xml
+        target: manifest/application
+        attrs:
+          android:usesCleartextTraffic: true
+
+      - file: AndroidManifest.xml
+        target: manifest/application
+        attrs:
+          android:requestLegacyExternalStorage: true
+
+      - file: AndroidManifest.xml
+        target: manifest
+        attrs:
+          xmlns:tools: "http://schemas.android.com/tools"
+
+      - file: AndroidManifest.xml
+        target: manifest
+        inject: |
+          <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+      - file: AndroidManifest.xml
+        target: manifest
+        inject: |
+          <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+
+      - file: AndroidManifest.xml
+        target: manifest
+        inject: |
+          <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+      - file: AndroidManifest.xml
+        target: manifest
+        inject: |
+          <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+      - file: AndroidManifest.xml
+        target: manifest
+        inject: |
+          <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" tools:node="remove"/>
+
+      - file: AndroidManifest.xml
+        target: manifest
+        inject: |
+          <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+
+      - file: AndroidManifest.xml
+        target: manifest
+        inject: |
+          <uses-feature android:name="android.hardware.location.network" />

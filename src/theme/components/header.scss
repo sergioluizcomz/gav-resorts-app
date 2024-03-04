@@ -1,0 +1,348 @@
+.custom-header-page {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: map-get($colors, "background-light");
+    width: calc(100% + 40px);
+    margin-left: -20px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 200;
+    padding-inline: 10px;
+
+    .header-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding-top: min(calc(10px + env(safe-area-inset-top)), 55px);
+
+        .safe-area-left, .safe-area-right {
+            min-width: 24px;
+        }
+
+        .safe-area-left {
+            margin-right: auto;
+        }
+
+        .safe-area-right {
+            margin-left: auto;
+        }
+
+        .header-title {
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            flex-grow: 1;
+            flex-direction: column;
+
+            span {
+                color: map-get($colors, "light");
+                font-size: 18px;
+                font-weight: 500;
+                text-align: center;
+                overflow-wrap: anywhere;
+
+                &:nth-child(2) {
+                    font-size: 12px !important;
+                    font-weight: 400 !important;
+                }
+
+            }
+
+        }
+
+        .custom-buttons-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+
+            .buttons-line {
+                margin: unset !important;
+
+                button {
+    
+                    .custom-icon {
+                        width: 24px;
+                        height: 24px;
+    
+                        svg path {
+                            stroke: map-get($colors, "dark");
+                        }
+    
+                    }
+    
+                }
+
+            }
+
+        }
+
+        .header-title > span, button > .custom-icon {
+            transition: transform 0.2s ease-out;
+        }
+
+    }
+
+    .header-footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: fit-content;
+        padding: 4px 12px;
+        background-color: unset;
+        border: 2px solid map-get($colors, "primary");
+        border-radius: 6px;
+        max-width: calc(100% - 40px);
+
+        span {
+            font-size: 12px;
+            font-weight: 500;
+            text-align: center;
+            color: map-get($colors, "primary");
+        }
+
+    }
+
+    &.fixed-header {
+        padding-bottom: 50px;
+
+        .header-content {
+            position: fixed;
+            padding-top: min(calc(20px + env(safe-area-inset-top)), 55px);
+            padding-bottom: 5px;
+            padding-inline: 10px;
+            background: map-get($colors, "primary");
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid map-get($colors, "light-gray");
+            overflow: hidden;
+            z-index: 20;
+            
+            .header-title > span, button > .custom-icon {
+                transform: scale(0.9);
+            }
+
+            .header-title > span {
+                font-size: 18px;
+            }
+
+        }
+        
+    }
+
+    .bg-gradient-full {
+        position: absolute;
+        //width: 200%;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        background: map-get($colors, "primary");
+        //border-bottom-right-radius: 100%;
+        //border-bottom-left-radius: 100%;
+        z-index: -1;
+        overflow: hidden;
+        box-shadow: $main-box-shadow;
+
+        .bg-background-water-mark {
+            opacity: 0.13;
+            height: 100%;
+            transform: translate(50%, 0%);
+
+            &.left-side {
+                transform: translate(-50%, 0%);
+            }
+    
+            .custom-icon {
+                height: 100%;
+                width: auto;
+
+                svg {
+                    width: 100% !important;
+
+                    path {
+                        stroke: map-get($colors, "dark") !important;
+                    }
+
+                }
+
+            }
+            
+        }
+
+    }
+
+    &.full-background {
+
+        .header-subtitle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0px 20px;
+
+            span {
+                text-align: center;
+                color: map-get($colors, "light");
+            }
+    
+        }
+
+        .header-content {
+        
+            .header-title {
+                
+                span {
+                    color: map-get($colors, "light") !important;
+                }
+    
+            }
+    
+            .custom-buttons-wrapper {
+
+                .buttons-line {
+
+                    button {
+        
+                        .custom-icon {
+        
+                            svg path {
+                                stroke: map-get($colors, "light") !important;
+                            }
+        
+                        }
+        
+                    }
+    
+                }
+    
+            }
+    
+        }
+
+        &:not(.fixed-header) {
+            padding-block: 20px;
+
+            .header-footer {
+                border: 2px solid map-get($colors, "light");
+        
+                span {
+                    color: map-get($colors, "light");
+                }
+        
+            }
+            
+        }
+
+        &.has-cards {
+
+            .bg-gradient-full {
+                height: calc(100% - 25px);
+            }
+
+        }
+
+        &.has-input {
+
+            form {
+                margin-top: 10px !important;
+                width: 100% !important;
+
+                .custom-input-wrapper {
+                    margin: unset !important;
+                }
+
+            }
+
+        }
+
+        .header-cards-wrapper {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 0px 15px;
+            margin-bottom: -25px;
+            margin-top: 10px;
+
+            .header-card {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                gap: 5px;
+                padding: 10px;
+                border-radius: 8px;
+                text-align: center;
+                background-color: map-get($colors, "light");
+                box-shadow: $main-box-shadow;
+                width: 100%;
+                max-width: 160px;
+                align-self: normal;
+                border: unset !important;
+                min-height: 40px;
+
+                .custom-icon {
+                    margin-bottom: 5px;
+                }
+
+                &.active {
+                    background-color: map-get($colors, "primary");
+
+                    > div {
+                        color: map-get($colors, "light");;
+                    }
+
+                    .custom-icon {
+
+                        svg path {
+                            stroke: map-get($colors, "light") !important;
+                        }
+                    }
+
+                }
+
+                custom-input {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    opacity: 0;
+                    z-index: 100;
+
+                    .input-group {
+                        height: 100%;
+                        position: absolute;
+                        width: 100%;
+                        top: 0;
+                        left: 0;
+                    }
+
+                }
+
+            }
+
+            &.square-format {
+
+                .header-card {
+                    aspect-ratio: 1;
+                    width: 100%;
+                    max-width: 120px;
+                }
+
+            }
+
+        }
+
+        &.fixed-header {
+
+            .header-cards-wrapper {
+                margin-bottom: -50px;
+            }
+            
+        }
+
+    }
+
+}

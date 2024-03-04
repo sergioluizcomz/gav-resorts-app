@@ -1,0 +1,102 @@
+@media only screen and (min-width: 768px) and (min-height: 600px) {
+    
+    ion-modal:not(.fullscreen) {
+        --background: #000;
+        --backdrop-opacity: 0.2;
+        --border-radius: 25px;
+        --box-shadow: $main-box-shadow;
+        //TODO trocar box-shadow
+
+        custom-header {
+
+            .header-background-gradient {
+                display: none !important;
+            }
+
+        }
+
+        &.custom-select-modal {
+
+            .custom-input-wrapper {
+                margin: 20px 0px !important;
+            }
+
+        }
+
+        
+        &.custom-select-modal {
+
+            .custom-input-wrapper {
+                margin: 20px 0px !important;
+            }
+
+        }
+
+    }
+
+}
+
+ion-modal {
+
+    &::part(handle) {
+
+        &::before {
+            padding: 10px 80px;
+        }
+
+    }
+
+}
+
+ion-modal.fullscreen {
+    --width: 100% !important;
+    --height: 100% !important;
+}
+
+ion-modal.qrcode-modal {
+    height: 80%;
+    margin-top: auto;
+
+    &::part(handle) {
+        width: 13.5%;
+        height: 4px;
+        background-color: rgba(20, 20, 20, 30%);
+        top: 20px;
+
+        &::before {
+        }
+
+    }
+
+    &::part(backdrop) {
+        background: unset !important;
+    }
+
+    &::part(content) {
+        border-top-right-radius: 25px;
+        border-top-left-radius: 25px;
+        box-shadow: $main-box-shadow;
+    }
+
+    select-modal-page {
+
+        ion-content {
+            --padding-top: 34px !important;
+        }
+
+        custom-header {
+            margin-top: 20px;
+
+            .custom-header-page {
+
+                .header-background-gradient {
+                    display: none !important;
+                }
+
+            }
+            
+        }
+
+    }
+
+}

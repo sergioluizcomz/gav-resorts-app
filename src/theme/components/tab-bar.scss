@@ -1,0 +1,83 @@
+.custom-tab-bar {
+    width: 100%;
+    box-shadow: $main-box-shadow;
+    z-index: 10;
+    position: relative;
+    background-color: map-get($colors, "background-light");
+    
+    .tab-bar-content {
+        width: inherit;
+        height: $tab-bar-height;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+
+        button.tab-bar-item {
+            padding: 6px;
+            border-radius: 4px;
+            position: relative;
+            border: 0px;
+            border-bottom: 4px solid transparent;
+            background-color: unset !important;
+
+            .custom-icon {
+                width: 22px;
+                height: 22px;
+
+                svg path {
+                    stroke: map-get($colors, "dark");
+                }
+                
+            }
+
+            &.active {
+                background: #42409625 !important;
+                border-bottom: 4px solid map-get($colors, "primary");
+
+                .custom-icon svg path {
+                    stroke: map-get($colors, "primary");
+                }
+                
+            }
+
+        }
+
+    }
+
+    .safe-area-bottom {
+        width: inherit;
+        height: env(safe-area-inset-bottom);
+    }
+
+    &.primary {
+        background-color: map-get($colors, "primary");
+
+        .tab-bar-content {
+    
+            button.tab-bar-item {
+    
+                .custom-icon {
+    
+                    svg path {
+                        stroke: map-get($colors, "light");
+                    }
+                    
+                }
+    
+                &.active {
+                    background: #ffffff25 !important;
+                    border-color: map-get($colors, "light");
+    
+                    .custom-icon svg path {
+                        stroke: map-get($colors, "light");
+                    }
+                    
+                }
+    
+            }
+    
+        }
+
+    }
+
+}

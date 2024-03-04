@@ -1,0 +1,39 @@
+@import "variables";
+
+@import
+    "fonts/poppins",
+    "fonts/font-awesome/fontawesome",
+    "fonts/font-awesome/regular",
+    "fonts/font-awesome/solid",
+    "fonts/font-awesome/duotone",
+    "fonts/font-awesome/light",
+    "fonts/font-awesome/brands";
+
+@import
+    "common",
+    "main";
+
+@import
+	"components/action-sheet",
+	"components/custom-card-1",
+	"components/custom-info-content",
+	"components/custom-icon",
+	"components/custom-media-select",
+	"components/alert",
+	"components/button",
+	"components/form",
+	"components/header",
+	"components/loading",
+	"components/modal",
+	"components/owl-date-time-picker",
+	"components/splash",
+	"components/tab-bar",
+	"components/toast",
+	"components/custom-image";
+
+@import
+    "pages/login",
+    "pages/gallery",
+    "pages/select-modal";
+
+@import "@danielmoncada/angular-datetime-picker/assets/style/picker.min.css";

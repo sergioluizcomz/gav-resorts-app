@@ -1,0 +1,354 @@
+button {
+	background-color: map-get($colors, "primary");
+	border: 1px solid map-get($colors, "primary");
+	box-shadow: unset;
+	position: relative;
+	overflow: hidden;
+	outline: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	color: #fff !important;
+
+	&:disabled {
+		opacity: 0.5;
+	}
+
+	&:not(.custom-button-txt) {
+
+		&:after {
+			content: "";
+			display: block;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			pointer-events: none;
+			background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+			background-repeat: no-repeat;
+			background-position: 50%;
+			transform: scale(10, 10);
+			opacity: 0;
+			transition: transform 0.5s, opacity 1s;
+		}
+
+		&.outline:after {
+			background-image: radial-gradient(circle, #424096 10%, transparent 10.01%);
+		}
+
+		&:active:after {
+			transform: scale(0, 0);
+			opacity: 0.3;
+			transition: 0s;
+		}
+
+	}
+
+	&.custom-button-icon {
+		overflow: unset;
+	}
+
+}
+
+button, .custom-icon {
+
+	&.is-rotating {
+		animation: rotate 2s linear infinite;
+	}
+
+	@keyframes rotate {
+		to {
+			transform: rotate(360deg);
+		}
+	}
+	
+}
+
+.custom-buttons-wrapper {
+	margin-inline: auto;
+
+	.buttons-line {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		&:not(:last-child) {
+			margin-bottom: 10px;
+		}
+
+		button {
+
+			&:not(:last-child) {
+				margin-right: 10px;
+			}
+
+			&.left {
+				margin-right: auto;
+			}
+			
+            &.right {
+                margin-left: auto;
+            }
+
+			&.full {
+				width: 100%;
+			}
+
+			&.half {
+				width: 50%;
+			}
+
+			span, i {
+				color: map-get($colors, "light");
+			}
+
+			.custom-icon {
+				margin-right: 10px;
+				width: 16px;
+				height: 16px;
+			}
+
+			i {
+				font-size: 16px;
+				margin-right: 10px;
+			}
+			
+			span {
+				font-weight: 500;
+				font-size: 14px;
+			}
+			
+			&.custom-button-sm {
+				padding: 8px 14px;
+				border-radius: 8px;
+
+				span {
+					font-size: 14px;
+				}
+				
+			}
+			
+			&.custom-button-md {
+				padding: 12px 20px;
+				border-radius: 8px;
+			}
+
+			&.danger {
+				background-color: map-get($colors, "danger");
+				border-color: map-get($colors, "danger");
+			}
+
+            &.primary {
+				background-color: map-get($colors, "primary");
+				border-color: map-get($colors, "primary");
+			}
+
+			&.warning {
+				background-color: map-get($colors, "warning") !important;
+				border-color: map-get($colors, "warning") !important;
+			}
+
+			&.success {
+				background-color: map-get($colors, "success") !important;
+				border-color: map-get($colors, "success") !important;
+			}
+
+			&.secondary {
+				background-color: map-get($colors, "secondary");
+				border-color: map-get($colors, "secondary");
+			}
+
+			&.outline {
+				background-color: unset;
+
+				span, i {
+					color: map-get($colors, "primary");
+				}
+
+				.custom-icon {
+	
+					svg path {
+						stroke: map-get($colors, "primary") !important;
+					}
+	
+				}
+
+				&.dashed {
+					border-style: dashed !important;
+				}
+
+			}
+
+			&.custom-button-txt {
+				background-color: unset;
+				border: unset;
+
+                &.underline span {
+                    font-weight: 400;
+                    text-decoration: underline;
+                }
+
+				span {
+					color: map-get($colors, "dark");
+				}
+				
+				&.light {
+					span {
+						color: map-get($colors, "light") !important;
+					}
+				}
+				
+			}
+			
+			&.custom-button-txt, &.custom-button-icon {
+
+				&:active {
+					opacity: 0.7;
+				}
+				
+			}
+
+			&:not(.custom-button-txt) {
+				box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+			}
+
+		}
+
+        &.menu-buttons {
+
+			button {
+
+				&:not(:last-child) {
+					margin-right: 30px;
+				}
+
+			}
+
+        }
+
+	}
+
+    .buttons-circle {
+        position: absolute;
+        right: 10px;
+        z-index: 1000;
+        bottom: 20px;
+        button {
+            border-radius: 50%;
+            padding: 15px;
+            background: white;
+            border: unset;
+
+            &:not(:first-child) {
+                margin-top: 25px;
+            }
+
+            &.primary {
+                background: var(--ion-color-primary);
+                .custom-icon {
+                    svg path { stroke: map-get($colors, "light") !important }
+                }
+            }
+            .custom-icon {
+                z-index: 1001;
+            }
+
+        }
+
+    }
+
+}
+
+button {
+
+	&.custom-button-icon:not(.custom-button-square) {
+		background-color: unset;
+		box-shadow: unset !important;
+		border: unset;
+		padding: unset;
+		position: relative;
+
+		.custom-icon {
+			margin: unset;
+
+			svg path {
+				//stroke: #000 !important;
+			}
+
+		}
+
+	}
+
+}
+
+.custom-button-icon-wrapper {
+    width: $input-height !important;
+    margin: 0px !important;
+    
+    &:not(.btn-lg) {
+        height: $input-height !important;
+    }
+    
+    .buttons-line {
+        width: 100%;
+        height: 100%;
+        
+        .custom-button-square {
+            width: 80%;
+            height: 80%;
+            border-radius: 8px;
+            border-width: 1px;
+    
+            .custom-icon {
+                margin: unset;
+            }
+
+            &:not(.outline) {
+
+                .custom-icon {
+        
+                    svg path {
+                        stroke: map-get($colors, "light") !important;
+                    }
+                }
+            }
+
+            &.outline {
+                background-color: unset;
+
+                .custom-icon {
+        
+                    svg path {
+                        stroke: map-get($colors, "primary") !important;
+                    }
+                }
+
+            }
+
+            &.white {
+                background-color: #ddd;
+
+                .custom-icon {
+        
+                    svg path {
+                        stroke: map-get($colors, "primary") !important;
+                    }
+                }
+
+            }
+    
+        }
+        
+    }
+
+    &.btn-lg {
+        height: 65px;
+
+        button {
+            padding: 25px;
+        }
+    }
+
+}

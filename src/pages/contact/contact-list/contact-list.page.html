@@ -1,0 +1,121 @@
+<ion-content padding class="contact-list-page">
+
+    <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+		<ion-refresher-content></ion-refresher-content>
+	</ion-refresher>
+    
+	<custom-header
+    [fixedHeaderEffect]="true"
+    [listLength]="filteredList ? filteredList.length : 0"
+    title="Contatos"
+    subtitle="{{ isLoading ? 'Obtendo contatos...' : 'Acompanhe abaixo os contatos cadastrados no sistema.' }}"
+    rightButtonIcon="add"
+    ></custom-header>
+
+	<div class="page-wrapper limit-width" *ngIf="!isLoading">
+
+        <div *ngIf="contacts && contacts.length > 0">
+
+            <custom-list-filter [searchText]="searchText" [filters]="filters" iconOutside="filter"></custom-list-filter>
+
+            <div class="custom-card-list" *ngIf="filteredList && filteredList.length > 0">
+            
+                <div class="custom-card-1 primary" *ngFor="let item of filteredList; let i = index">
+                    <div class="card-top-bar"></div>
+                    <div class="card-content">
+                        <div *ngIf="item.foto" class="section-image">
+                            <custom-image [src]="item.foto"></custom-image>
+                        </div>
+
+                        <div class="section-info-2">
+                            <div>
+                                <span class="primary bold-5">{{ item.nome }}</span>
+    
+                                <div class="ml-10">
+                                    <button type="button" class="custom-button-icon" (click)="openContactInfo(item)">
+                                        <svg-icon src="../../assets/imgs/icons/nav-arrow-right.svg" class="custom-icon sm"></svg-icon>
+                                    </button>
+                                </div>
+                            </div>
+    
+                            <div *ngIf="item.telefone">
+                                <span>{{ getPhoneFormatted(item.telefone) }}</span>
+                            </div>
+
+                            <div *ngIf="item.email">
+                                <span>{{ item.email }}</span>
+                            </div>
+                        </div>
+    
+                        <div class="section-info-3">
+                            <div>
+                                <span>Nº:</span>
+                                <span>{{ item.id }}</span>
+                            </div>
+
+                            <div>
+                                <span>Data de criação:</span>
+                                <span>{{ item.dataCadastro | dateBr:"DD/MM/YYYY [às] HH:mm" }}</span>
+                            </div>
+                        </div>
+    
+                        <div class="section-info-4">
+
+                            <div class="custom-buttons-wrapper">
+                                <div class="buttons-line">
+                                    <button type="button" class="custom-button-sm primary right" (click)="openContactActions(item)">
+                                        <span>Gerenciar contato</span>
+                                    </button>
+                                </div>
+                            </div>
+    
+                        </div>
+
+                    </div>
+                </div>
+    
+            </div>
+    
+            <div *ngIf="!filteredList || filteredList.length == 0">
+                <div class="align-center">Nenhum contato encontrado para esses parâmetros de busca.</div>
+            </div>
+
+        </div>
+
+        <div class="custom-message-wrapper" *ngIf="!contacts || contacts.length == 0">
+        
+            <div class="header-wrapper">
+                <div class="illustration-wrapper">
+                    <img src="../../../../assets/imgs/illustrations/no-data.svg">
+                </div>
+            </div>
+    
+            <div class="content-wrapper">
+                <h2 class="primary bold-6 align-center">Atenção!</h2>
+                <p class="align-center">Nenhum contato disponível para consulta neste momento.</p>
+            </div>
+
+            <div class="custom-buttons-wrapper mt-40">
+                <div class="buttons-line">
+                    <button (click)="openContactForm()" type="button" class="custom-button-md primary full">
+                        <svg-icon src="../../assets/imgs/icons/add.svg" class="custom-icon light"></svg-icon>
+                        <span>Cadastrar novo contato</span>
+                    </button>
+				</div>
+
+				<div class="buttons-line">
+					<button (click)="dismiss()" type="button" class="custom-button-md outline half">
+						<span>Voltar</span>
+					</button>
+
+                    <button (click)="refresh()" type="button" class="custom-button-md primary half">
+                        <span>Atualizar</span>
+                    </button>
+				</div>
+			</div>
+    
+        </div>
+
+	</div>
+	
+</ion-content>

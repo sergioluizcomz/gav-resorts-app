@@ -1,0 +1,44 @@
+.gallery-page {
+    position: relative;
+
+    swiper-container {
+        height: 100%;
+        background-color: map-get($colors, "background-light");
+
+        swiper-slide {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            > img {
+                width: 100%;
+                height: auto;
+            }
+
+        }
+
+        &::part(bullet) {
+            opacity: 0.1;
+        }
+
+        &::part(bullet-active) {
+            background: map-get($colors, "primary");
+        }
+
+    }
+
+    .custom-buttons-wrapper {
+        position: absolute;
+        top: calc(35px + env(safe-area-inset-top));
+        right: 15px;
+        z-index: 10;
+
+        button {
+            background-color: rgba(0, 0, 0, 0.05) !important;
+            border-radius: 50% !important;
+            padding: 10px !important;
+        }
+        
+    }
+
+}

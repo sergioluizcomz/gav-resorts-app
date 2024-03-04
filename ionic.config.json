@@ -1,0 +1,7 @@
+{
+  "name": "gav-resorts-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

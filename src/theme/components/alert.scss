@@ -1,0 +1,253 @@
+
+ion-alert, ion-loading {
+    --background-color: map-get($colors, "background-light");
+
+    ion-backdrop {
+        --background: #000;
+        --backdrop-opacity: 0.2;
+    }
+
+    > div.alert-wrapper {
+        padding: unset !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        border-radius: 8px !important;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px !important;
+
+        .alert-message {
+            width: 100%;
+            
+            .select-content {
+                overflow-y: auto;
+                max-height: 206px;
+
+            }
+            
+        }
+
+        background-color: white !important;
+
+    }
+
+    .alert-head {
+        display: none;
+    }
+
+    .alert-message, .alert-button-group {
+        padding: unset !important;
+        max-height: unset !important;
+    }
+
+    &.success {
+
+        .custom-alert-icon i, .custom-alert-title {
+            color: map-get($colors, "primary") !important;
+        }
+
+    }
+
+    &.error {
+
+        .custom-alert-icon i, .custom-alert-title {
+            color: map-get($colors, "danger") !important;
+        }
+
+    }
+
+    &.warning {
+
+        .custom-alert-icon i, .custom-alert-title {
+            color: map-get($colors, "warning") !important;
+        }
+
+    }
+    
+    .custom-alert-content {
+        padding: 14px 14px 0px;
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        .custom-alert-icon i, .custom-alert-title {
+            color: map-get($colors, "dark");
+        }
+
+        .custom-alert-icon {
+            margin: 0px auto 2px;
+
+            i {
+                font-size: 24px;
+            }
+
+        }
+
+        .custom-alert-title {
+            font-size: 16px;
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 14px;
+
+            > small {
+                font-size: 12px;
+                color: map-get($colors, "light-gray");
+            }
+
+        }
+
+        .custom-alert-message {
+            text-align: center;
+            font-size: 14px;
+            font-weight: 400;
+            color: map-get($colors, "dark");
+            padding: 14px;
+            width: calc(100% + 28px);
+            border-block: 1px solid rgba(0, 0, 0, 0.1);
+
+            .custom-select-option-label {
+                text-align: initial;
+            }
+            
+        }
+
+    }
+
+    .alert-button-group {
+        padding: 14px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex-direction: row !important;
+        width: 100% !important;
+        margin: unset !important;
+
+        button {
+            background-color: map-get($colors, "primary") !important;
+            border: 1px solid map-get($colors, "primary") !important;
+            position: relative;
+            overflow: hidden;
+            outline: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            padding: 8px 16px !important;
+            border-radius: 8px !important;
+            margin: unset !important;
+            width: calc(50% - 5px) !important;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px !important;
+            min-width: unset !important;
+            height: unset !important;
+            max-width: 50% !important;
+
+            &:not(:last-child) {
+                margin-right: 10px !important;
+            }
+
+            span {
+                color: map-get($colors, "light");
+                font-size: 14px;
+                font-weight: 500;
+                text-align: center !important;
+                justify-content: center !important;
+                text-transform: capitalize !important;
+            }
+
+            &.btn-outline {
+                background-color: unset !important;
+
+				span {
+					color: map-get($colors, "primary");
+				}
+
+            }
+
+            &.btn-primary {
+
+            }
+
+            &.btn-danger {
+                background-color: map-get($colors, "danger") !important;
+            }
+
+        }
+        
+    }
+
+}
+
+ion-alert, select-modal-page {
+
+    .custom-select-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        flex-direction: column;
+
+        &.multiple-select {
+
+            .custom-select-option-checkbox {
+                border-radius: 4px !important;
+            }
+
+        }
+
+        .custom-select-option {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            width: 100%;
+            
+            &:not(:last-child) {
+                margin-bottom: 14px;
+
+                &.navigation-option {
+                    margin-bottom: 20px;
+                }
+                
+            }
+
+            .custom-select-option-checkbox {
+                position: relative;
+                width: 24px;
+                min-width: 24px;
+                height: 24px;
+                border: 1px solid map-get($colors, "light-gray");
+                border-radius: 50%;
+                margin-right: 14px;
+
+            }
+
+            &.checked {
+
+                .custom-select-option-checkbox {
+                    background-color: map-get($colors, "primary");
+                    border-color: map-get($colors, "primary");
+
+                    &::after {
+                        content: "";
+                        display: block;
+                        width: 5px;
+                        height: 10px;
+                        border: solid;
+                        border-width: 0 2px 2px 0;
+                        border-color: #fff;
+                        position: absolute;
+                        top: 40%;
+                        left: 50%;
+                        transform: translate(-50%, -50%) rotate(45deg);
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+}

@@ -1,0 +1,101 @@
+<ion-content padding class="select-modal-page">
+	
+	<div class="page-wrapper">
+	
+		<custom-header
+		[modal]="true"
+		[fixedHeaderEffect]="false"
+		[title]="title"
+		[subtitle]="subtitle"
+		[listLength]="filteredItems ? filteredItems.length : 0"
+		(onRightClick)="rightButtonCallback()"
+		></custom-header>
+	
+		<form [customForm]="form" *ngIf="form" [formGroup]="form" class="custom-form-wrapper">
+	
+			<custom-input
+			[fc]="form.get('search')"
+			type="text"
+			[placeholder]="searchPlaceholder"
+			[searchSelect]="true"
+			iconInside="search"
+			[ajaxRoute]="ajaxRoute"
+			iconInsideColor="light-gray"
+			[iconInsideLeftSide]="true"
+			></custom-input>
+			
+		</form>
+
+		<div class="custom-select-wrapper" [class.multiple-select]="multiple">
+
+			<div *ngIf="!isLoadingOptions && !someOptionVisible && ((!ajaxRoute || ajaxAlreadyLoaded) || items.length > 0)" class="no-options-wrapper">
+				<span>Nenhum resultado encontrado para sua pesquisa.</span>
+			</div>
+
+			<div *ngIf="!isLoadingOptions && ajaxRoute && !ajaxAlreadyLoaded && (!items || items.length == 0)" class="no-options-wrapper">
+				<span>Pesquise no campo de busca acima para visualizar as opções disponíveis</span>
+			</div>
+
+			<div class="loading-info-wrapper" *ngIf="isLoadingOptions">
+				<ion-spinner></ion-spinner>
+				<div class="mt-10">Obtendo opções disponíveis...</div>
+			</div>
+
+			<div class="custom-select-container" *ngIf="!isLoadingOptions">
+				
+				<!-- Adiciona opção de selecionar todos os itens do seletor múltiplo -->
+				<div *ngIf="(multiple && filteredItems && filteredItems.length > 1) && !(!isLoadingOptions && !someOptionVisible && ((!ajaxRoute || ajaxAlreadyLoaded) || items.length > 0))"
+				class="custom-select-option"
+				[class.checked]="checkedAll"
+				(click)="onCheckAll()">
+					<div class="custom-select-option-checkbox"></div>
+					
+					<div class="custom-select-option-label">
+						<div>
+							<span>Selecionar Todos</span>
+						</div>
+					</div>
+				</div>
+				
+				<div *ngFor="let option of filteredItems; let i = index;"
+				class="custom-select-option"
+				[class.navigation-option]="ajaxRoute == 'app-functions'"
+				(click)="onCheck(option, i)"
+				[class.checked]="selectedOptionsKeysList.indexOf(i) != -1"
+				[class.d-none]="!option.is_option_visible">
+				
+					<div class="custom-select-option-checkbox" [class.d-none]="ajaxRoute == 'app-functions'"></div>
+					
+					<div class="custom-select-option-label">
+						<div [class.bold-5]="boldOptionLabel">{{ getOptionLabel(option) }}</div>
+
+						<div *ngIf="option.phone">
+							<span>{{ getPhoneFormatted(option.phone) }}</span>
+						</div>
+
+						<div *ngIf="option.doc">
+							<span class="font-12 uppercase primary bold-5">Documento {{ getDocFormatted(option.doc) }}</span>
+						</div>
+					</div>
+	
+				</div>
+				
+			</div>
+			
+		</div>
+
+		<div class="custom-buttons-wrapper mt-20">
+			<div class="buttons-line">
+				<button (click)="dismiss()" type="button" class="custom-button-md outline half" [class.half]="ajaxRoute != 'app-functions'" [class.full]="ajaxRoute == 'app-functions'">
+					<span>Cancelar</span>
+				</button>
+	
+				<button *ngIf="ajaxRoute != 'app-functions'" (click)="submit()" type="submit" [disabled]="!form.valid" class="custom-button-md primary half">
+					<span>Confirmar</span>
+				</button>
+			</div>
+		</div>
+
+	</div>
+
+</ion-content>

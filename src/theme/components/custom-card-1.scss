@@ -1,0 +1,648 @@
+div.custom-card-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: rgba(9, 30, 66, 0.15) 0px 4px 8px -2px, rgba(9, 30, 66, 0.05) 0px 0px 0px 1px;
+    background-color: #fff;
+    touch-action: manipulation !important;
+    background-color: map-get($colors, "light");
+
+    .tag-1 {
+        border: 1px solid;
+        font-size: 12px;
+        padding: 4px 10px;
+        border-radius: 24px;
+        border-color: map-get($colors, "primary");
+        color: map-get($colors, "custom-gray");
+
+        &.outline {
+            border-color: map-get($colors, "primary");
+            color: map-get($colors, "primary");
+            background-color: unset;
+        }
+
+    }
+    
+    &:not(:last-child) {
+        margin-bottom: 14px;
+    }
+
+    > div {
+
+        //Barra de status (cor sólida
+        &.card-top-bar {
+            width: 100%;
+            min-height: 8px;
+            height: 8px;
+            background-color: map-get($colors, "secondary");
+            position: relative;
+
+            &::after {
+                content: "";
+                position: absolute;
+                height: 220px;
+                width: 100%;
+                background: linear-gradient(180deg, map-get($colors, "secondary") 0%, rgba(255,255,255,0) 100%);
+                top: -185px;
+                z-index: 1;
+                opacity: 0.7;
+            }
+
+        }
+
+        &.card-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 0px 10px 10px;
+            z-index: 10;
+
+            .custom-icon {
+                width: 24px;
+                height: 24px;
+
+                &:not(.primary) {
+                    
+                    svg path {
+                        stroke: map-get($colors, "secondary") !important
+                    }
+
+                }
+
+            }
+
+        }
+
+        &.card-content {
+            padding: 10px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 2;
+
+            > div {
+                width: 100%;
+
+                &.section-image {
+                    
+                    custom-image > .custom-image-wrapper {
+                        margin-bottom: 14px !important;
+                        height: 100px !important;
+                    }
+
+                }
+
+                &.badge-wrapper span {
+                    background-color: map-get($colors, "secondary") !important;
+                    color: map-get($colors, "light") !important;
+                }
+
+                &.section-info-1 {
+                    display: flex;
+                    align-items: flex-start;
+                    width: 100%;
+                    margin-bottom: 14px;
+
+                    > div {
+                        display: flex;
+                        align-items: center;
+                        display: inline-flex;
+                        gap: 8px;
+                        flex-flow: wrap;
+                        text-align: center;
+
+                        span {
+                            border: 1px solid;
+                            font-size: 12px;
+                            padding: 4px 10px;
+                            border-radius: 24px;
+                            border-color: map-get($colors, "primary");
+                            color: map-get($colors, "primary");
+                        }
+
+                        &:nth-child(1) {
+                            margin-right: 8px;
+
+                            span {
+                                border-color: map-get($colors, "secondary");
+                                background-color: map-get($colors, "secondary");
+                                color: map-get($colors, "light");
+                                font-weight: 500;
+                            }
+
+                        }
+
+                        &:nth-child(2) {
+                            justify-content: right;
+                            margin-left: auto;
+                            width: fit-content;
+
+                            &.no-border {
+
+                                span {
+                                    border: unset;
+                                    padding: unset;
+                                }
+
+                            }
+                        }
+                        
+                    }
+
+                    .tag-danger {
+                        background-color: map-get($colors, "secondary")!important;
+                        border-color: map-get($colors, "secondary")!important;
+                        color: map-get($colors, "light")!important;
+                    }
+
+                    .tag-warning {
+                        background-color: map-get($colors, "warning")!important;
+                        border-color: map-get($colors, "warning")!important;
+                        color: map-get($colors, "light")!important;
+                    }
+
+                    .tag-success {
+                        background-color: map-get($colors, "success")!important;
+                        border-color: map-get($colors, "success")!important;
+                        color: map-get($colors, "light")!important;
+                    }
+
+                    .tag-danger {
+                        background-color: map-get($colors, "danger")!important;
+                        border-color: map-get($colors, "danger")!important;
+                        color: map-get($colors, "light")!important;
+                    }
+
+                }
+
+                &.section-info-2 {
+                    
+                    > div {
+                        display: flex;
+                        align-items: flex-start;
+
+                        &:not(:last-child) {
+                            margin-bottom: 2px;
+                        }
+
+                        span {
+                            font-size: 14px;
+                            color: map-get($colors, "dark");
+                            
+                            &:nth-child(1) {
+                                flex-grow: 1;
+                            }
+
+                            &:nth-child(2) {
+                                margin-left: 8px;
+                                overflow-wrap: anywhere;
+                                text-align: right;
+                            }
+
+                        }
+
+                    }
+
+                }
+
+                &.section-info-3 {
+                    margin-top: 8px;
+                    padding-top: 8px;
+                    border-top: 1px solid map-get($colors, "light-gray");
+
+                    > div {
+                        display: flex;
+                        align-items: center;
+
+                        span {
+                            font-size: 14px;
+                            color: map-get($colors, "dark");
+                            
+                            &:first-child {
+                                flex-grow: 1;
+                                font-weight: 500;
+                            }
+
+                            &:last-child {
+                                margin-left: 8px;
+                                text-align: right;
+                                overflow-wrap: anywhere;
+                            }
+
+                        }
+
+                    }
+
+                }
+
+                &.section-info-4 {
+                    margin-top: 8px;
+                }
+
+                &.section-info-5 {
+                    margin-top: 8px;
+                    padding-top: 8px;
+                    border-top: 1px solid map-get($colors, "light-gray");
+
+                    custom-input {
+
+                        .custom-input-wrapper {
+                            margin-bottom: unset;
+                        }
+
+                        &:not(:last-child) {
+
+                            .custom-input-wrapper {
+                                margin-bottom: 8px;
+                            }
+
+                        }
+
+                    }
+
+                }
+
+                &.section-info-6 {
+                    margin-top: 8px;
+                    display: flex;
+                    align-items: center;
+                    text-align: left;
+                    font-size: 12px;
+
+                    > div:first-child {
+                        min-width: 8px;
+                        width: 8px;
+                        height: 8px;
+                        border-radius: 50%;
+                        margin-right: 5px;
+                        background-color: map-get($colors, "secondary");
+                    }
+
+                }
+
+                &.section-info-7 {
+                    margin: 12px 0px 4px;
+                    padding-top: 12px;
+                    border-top: 1px solid map-get($colors, "light-gray");
+
+                    > div.btn-cards-wrapper {
+                        display: grid;
+                        grid-template-columns: 30% 30% 30%;
+                        align-items: center;
+                        justify-content: center;
+                        width: 100%;
+                        gap: 10px;
+
+                        > button.btn-card {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            flex-direction: column;
+                            gap: 5px;
+                            padding: 10px;
+                            border-radius: 8px;
+                            text-align: center;
+                            background-color: map-get($colors, "primary");
+                            box-shadow: $main-box-shadow;
+                            width: 100%;
+                            max-width: 160px;
+                            align-self: normal;
+                            border: unset !important;
+                            aspect-ratio: 1;
+
+                            > div {
+                                color: map-get($colors, "light");
+                            }
+
+                            .custom-icon {
+                                margin-bottom: 5px;
+
+                                svg path {
+                                    stroke: map-get($colors, "light") !important;
+                                }
+
+                            }
+                            
+                        }
+
+                    }
+
+                }
+
+            }
+            
+        }
+
+    }
+
+    &.only-section-info-3 {
+
+        div.section-info-3 {
+            margin: unset !important;
+            padding: unset !important;
+            border: unset !important;
+        }
+
+    }
+
+    &.primary {
+
+        > div {
+
+            &.card-top-bar {
+                background-color: map-get($colors, "primary");
+
+                &::after {
+                    background: linear-gradient(180deg, map-get($colors, "primary") 0%, rgba(255,255,255,0) 100%);
+                }
+
+            }
+
+            &.card-icon {
+
+                .custom-icon svg path {
+                    stroke: map-get($colors, "primary") !important
+                }
+
+                .custom-checkbox-wrapper {
+                    margin: unset !important;
+                }
+
+            }
+
+            &.card-content {
+
+                > div {
+
+                    &.badge-wrapper span {
+                        background-color: map-get($colors, "primary") !important;
+                        color: map-get($colors, "light") !important;
+                    }
+
+                    &.section-info-1 {
+
+                        > div {
+
+                            &:nth-child(1) {
+
+                                span:not(.outline) {
+                                    border-color: map-get($colors, "primary");
+                                    background-color: map-get($colors, "primary");
+                                    color: map-get($colors, "light");
+                                }
+
+                                span.outline {
+                                    border-color: map-get($colors, "primary");
+                                    color: map-get($colors, "primary");
+                                    background-color: unset;
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                    &.section-info-3 {
+
+                    }
+
+                    &.section-info-6 {
+
+                        > div:first-child {
+                            background-color: map-get($colors, "primary");
+                        }
+
+                    }
+
+                }
+                
+            }
+
+        }
+
+    }
+
+    &.success {
+
+        > div {
+
+            &.card-top-bar {
+                background-color: map-get($colors, "success");
+
+                &::after {
+                    background: linear-gradient(180deg, map-get($colors, "success") 0%, rgba(255,255,255,0) 100%);
+                }
+
+            }
+
+            &.card-icon {
+
+                .custom-icon svg path {
+                    stroke: map-get($colors, "success") !important
+                }
+
+                .custom-checkbox-wrapper {
+                    margin: unset !important;
+                }
+
+            }
+
+            &.card-content {
+
+                > div {
+
+                    &.badge-wrapper span {
+                        background-color: map-get($colors, "success") !important;
+                        color: map-get($colors, "light") !important;
+                    }
+
+                    &.section-info-1 {
+
+                        > div {
+
+                            &:nth-child(1) {
+
+                                span:not(.outline) {
+                                    border-color: map-get($colors, "success");
+                                    background-color: map-get($colors, "success");
+                                    color: map-get($colors, "light");
+                                }
+
+                                span.outline {
+                                    border-color: map-get($colors, "primary");
+                                    color: map-get($colors, "primary");
+                                    background-color: unset;
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                    &.section-info-3 {
+
+                    }
+
+                    &.section-info-6 {
+
+                        > div:first-child {
+                            background-color: map-get($colors, "success");
+                        }
+
+                    }
+
+                }
+                
+            }
+
+        }
+
+    }
+
+    &.danger {
+
+        > div {
+
+            &.card-top-bar {
+                background-color: map-get($colors, "danger");
+
+                &::after {
+                    background: linear-gradient(180deg, map-get($colors, "danger") 0%, rgba(255,255,255,0) 100%);
+                }
+
+            }
+
+            &.card-icon {
+
+                .custom-icon svg path {
+                    stroke: map-get($colors, "danger") !important
+                }
+
+            }
+
+            &.card-content {
+
+                > div {
+
+                    &.badge-wrapper span {
+                        background-color: map-get($colors, "danger") !important;
+                        color: map-get($colors, "light") !important;
+                    }
+
+                    &.section-info-1 {
+
+                        > div {
+
+                            &:nth-child(1) {
+
+                                span {
+                                    border-color: map-get($colors, "danger");
+                                    background-color: map-get($colors, "danger");
+                                    color: map-get($colors, "light");
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                    &.section-info-3 {
+
+                    }
+
+                    &.section-info-6 {
+
+                        > div:first-child {
+                            background-color: map-get($colors, "danger");
+                        }
+
+                    }
+
+                }
+                
+            }
+
+        }
+
+    }
+
+    &.warning {
+
+        > div {
+
+            &.card-top-bar {
+                background-color: map-get($colors, "warning");
+
+                &::after {
+                    background: linear-gradient(180deg, map-get($colors, "warning") 0%, rgba(255,255,255,0) 100%);
+                }
+
+            }
+
+            &.card-icon {
+
+                .custom-icon svg path {
+                    stroke: map-get($colors, "warning") !important
+                }
+
+            }
+
+            &.card-content {
+
+                > div {
+
+                    &.badge-wrapper span {
+                        background-color: map-get($colors, "warning") !important;
+                        color: map-get($colors, "light") !important;
+                    }
+
+                    &.section-info-1 {
+
+                        > div {
+
+                            &:nth-child(1) {
+
+                                span {
+                                    border-color: map-get($colors, "warning");
+                                    background-color: map-get($colors, "warning");
+                                    color: map-get($colors, "light");
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                    &.section-info-3 {
+
+                    }
+
+                    &.section-info-6 {
+
+                        > div:first-child {
+                            background-color: map-get($colors, "warning");
+                        }
+
+                    }
+
+                }
+                
+            }
+
+        }
+
+    }
+
+    &.primary-border {
+        border: 1px solid map-get($colors, "primary");
+    }
+
+}

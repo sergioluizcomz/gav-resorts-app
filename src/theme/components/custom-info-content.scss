@@ -1,0 +1,144 @@
+.custom-info-content {
+	display: flex;
+    align-items: stretch;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: rgba(9, 30, 66, 0.15) 0px 4px 8px -2px, rgba(9, 30, 66, 0.05) 0px 0px 0px 1px;
+    background-color: #fff;
+    touch-action: manipulation !important;
+	margin: 0 auto;
+
+	//Barra de status (cor sólida
+	div.info-left-bar {
+		min-width: 8px;
+		width: 8px;
+		background-color: map-get($colors, "secondary");
+		position: relative;
+
+		&::after {
+			content: "";
+			position: absolute;
+			width: 220px;
+			height: 100%;
+			background: linear-gradient(90deg, map-get($colors, "secondary") 0%, rgba(255,255,255,0) 100%);
+			left: -185px;
+			z-index: 1;
+			opacity: 0.7;
+		}
+
+	}
+
+	div.info-icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 10px 0px 10px 10px;
+		z-index: 10;
+
+		.custom-icon {
+			width: 24px;
+			height: 24px;
+                    
+			svg path {
+				stroke: map-get($colors, "secondary") !important
+			}
+
+		}
+
+	}
+
+	div.info-content {
+		padding: 10px;
+		display: flex;
+		align-items: center;
+		z-index: 2;
+		width: 100%;
+
+		> div {
+			font-size: 14px;
+
+			&:first-child {
+				flex-grow: 1;
+			}
+
+            &.info-buttons {
+                margin-left: 10px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+		}
+
+	}
+
+    &.primary {
+
+        div.info-left-bar {
+            background-color: map-get($colors, "primary");
+
+            &::after {
+                background: linear-gradient(90deg, map-get($colors, "primary") 0%, rgba(255,255,255,0) 100%) !important;
+            }
+
+        }
+
+        div.info-icon .custom-icon svg path {
+            stroke: map-get($colors, "primary") !important
+        }
+        
+    }
+
+    &.warning {
+
+        div.info-left-bar {
+            background-color: map-get($colors, "warning");
+
+            &::after {
+                background: linear-gradient(90deg, map-get($colors, "warning") 0%, rgba(255,255,255,0) 100%) !important;
+            }
+
+        }
+
+        div.info-icon .custom-icon svg path {
+            stroke: map-get($colors, "warning") !important
+        }
+        
+    }
+
+    &.danger {
+
+        div.info-left-bar {
+            background-color: map-get($colors, "danger");
+
+            &::after {
+                background: linear-gradient(90deg, map-get($colors, "danger") 0%, rgba(255,255,255,0) 100%) !important;
+            }
+
+        }
+
+        div.info-icon .custom-icon svg path {
+            stroke: map-get($colors, "danger") !important
+        }
+        
+    }
+
+    &.success {
+
+        div.info-left-bar {
+            background-color: map-get($colors, "success");
+
+            &::after {
+                background: linear-gradient(90deg, map-get($colors, "success") 0%, rgba(255,255,255,0) 100%) !important;
+            }
+
+        }
+
+        div.info-icon .custom-icon svg path {
+            stroke: map-get($colors, "success") !important
+        }
+        
+    }
+
+}

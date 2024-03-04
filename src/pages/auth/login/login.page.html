@@ -1,0 +1,94 @@
+<ion-content padding class="login-page">
+
+	<div class="login-header">
+		<div class="bg-background-water-mark">
+			<svg-icon src="../../../assets/imgs/icons/airplane.svg" class="custom-icon"></svg-icon>
+		</div>
+		
+		<div class="login-info">
+			<h1>Bem Vindo!</h1>
+			<p>Preencha os dados abaixo para continuar</p>
+		</div>
+
+		<div class="login-logo">
+			<img src="../../../assets/imgs/logo-gav-blue.png" alt="">
+		</div>
+	</div>
+
+	<div class="page-wrapper limit-width">
+
+		<div class="login-form-wrapper" *ngIf="!errorMessage">
+
+			<form *ngIf="form" [customForm]="form" [formGroup]="form">
+		
+				<custom-input
+				[fc]="form.get('login')"
+				label="E-mail"
+				type="text"
+				placeholder="Digite seu e-mail de usuário"
+				></custom-input>
+				
+				<custom-input
+				[fc]="form.get('password')"
+				label="Senha"
+				type="password"
+				placeholder="Digite sua senha"
+				iconInside="eye-open"
+				iconInsideColor="primary"
+				></custom-input>
+	
+				<div class="row">
+					<custom-checkbox
+					[fc]="form.get('is_remember_me')"
+					label="Lembrar de mim"
+					inline="right"
+					></custom-checkbox>
+		
+					<div class="custom-buttons-wrapper">
+						<div class="buttons-line">
+							<button type="button" class="custom-button-txt underline right" (click)="openRecoverPasswordPage()">
+								<span class="primary align-left">Esqueceu sua senha?</span>
+							</button>
+						</div>
+					</div>
+				</div>
+		
+				<div class="custom-buttons-wrapper mt-40">
+					<div class="buttons-line">
+						<button (click)="submit()" [disabled]="!isFormValid" type="submit" class="custom-button-md primary full">
+							<span>Entrar</span>
+						</button>
+					</div>
+				</div>
+				
+			</form>
+
+		</div>
+
+		<div class="custom-message-wrapper" *ngIf="errorMessage">
+
+            <div class="header-wrapper">
+				<div class="illustration-wrapper">
+                    <img src="../../../assets/imgs/illustrations/sorry.svg">
+                </div>
+            </div>
+    
+            <div class="content-wrapper">
+                <h1 class="primary bold-6 align-center">Atenção!</h1>
+				<p class="align-center">Não foi possível realizar o seu login.</p>
+				<p class="align-center">{{ errorMessage }}</p>
+            </div>
+
+			<div class="custom-buttons-wrapper mt-40">
+				<div class="buttons-line">
+					<button (click)="errorMessage = null" type="button" class="custom-button-md primary full">
+						<span>Tentar novamente</span>
+					</button>
+				</div>
+			</div>
+    
+        </div>
+
+	</div>
+
+</ion-content>

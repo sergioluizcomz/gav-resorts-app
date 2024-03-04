@@ -1,0 +1,119 @@
+.select-modal-page {
+
+    .page-wrapper {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        .custom-input-wrapper {
+            margin-bottom: 20px !important;
+        }
+
+        .custom-select-wrapper {
+            display: flex;
+            flex-grow: 1;
+            overflow-y: auto;
+            width: calc(100% + 40px);
+            margin-left: -20px;
+            border-block: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 14px 20px;
+
+            .no-options-wrapper {
+                display: flex;
+                align-items: center;
+                margin-bottom: 14px;
+
+                span {
+                    font-size: 14px;
+                    color: map-get($colors, "dark");
+                    text-align: center;
+                }
+
+            }
+
+            .custom-select-option {
+
+                &.profile-option {
+                    margin: unset;
+                    padding: 7px 6px;
+                    border-radius: 8px;
+
+                    &.checked {
+                        background-color: map-get($colors, "primary-opacity-25");
+                    }
+
+                    .custom-select-option-label {
+                        display: flex;
+                        align-items: center;
+                        width: 100%;
+                        overflow: hidden;
+                        text-align: left;
+                        
+                        > div {
+
+                            &:nth-child(1) {
+                                width: 48px;
+                                height: 48px;
+                                min-width: 48px;
+                                min-height: 48px;
+                                border-radius: 50%;
+                                overflow: hidden;
+                                background-color: #d9d9d9;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                border: 1px solid map-get($colors, "primary");
+                                background-color: map-get($colors, "background-light") !important;
+                                
+                                > span {
+                                    font-size: 18px;
+                                    color: map-get($colors, "primary");
+                                    margin-top: 2px; //Apenas quando todas as possíveis letras forem maiúsculas
+                                }
+                                
+                            }
+
+                            &:nth-child(2) {
+                                flex-grow: 1;
+                                margin-left: 12px;
+
+                                > div {
+                                    font-size: 14px;
+                                    color: map-get($colors, "dark");
+                    
+                                    &:nth-child(1) {
+                                        font-weight: 500;
+                                        margin-bottom: 2px;
+                                    }
+                    
+                                    &:nth-child(2) {
+                                        font-size: 12px;
+                                    }
+                    
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+            .custom-select-container {
+                width: 100%;
+            }
+            
+        }
+
+        .custom-buttons-wrapper {
+            width: 100%;
+            max-width: unset;
+            padding-bottom: min(env(safe-area-inset-bottom), 10px);
+        }
+
+    }
+
+}

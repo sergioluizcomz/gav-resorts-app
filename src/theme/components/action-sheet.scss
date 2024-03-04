@@ -1,0 +1,139 @@
+ion-action-sheet {
+    --background-color: #f9f9f9;
+
+    ion-backdrop {
+        --background: #000;
+        --backdrop-opacity: 0.2;
+    }
+
+    &.ios {
+
+        .action-sheet-container {
+            padding: 10px !important;
+
+            .action-sheet-group {
+                box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px !important;
+                margin: unset;
+
+                &:not(:last-child) {
+                    margin-bottom: 10px;
+                }
+
+            }
+
+            &.action-sheet-group-cancel {
+
+                button span::after {
+                    background: none !important;
+                }
+                
+            }
+
+        }
+
+    }
+
+    &.md {
+
+        .action-sheet-group:first-child {
+            box-shadow: rgba(0, 0, 0, 0.1) 0px -4px 6px -1px, rgba(0, 0, 0, 0.06) 0px -2px 4px -1px !important;
+        }
+
+        .action-sheet-wrapper {
+    
+            .action-sheet-container {
+        
+                .action-sheet-group {
+
+                    &.action-sheet-group-cancel {
+                        padding-bottom: env(safe-area-inset-bottom);
+                    }
+
+                }
+            }
+
+        }
+
+    }
+
+    .action-sheet-wrapper {
+    
+        .action-sheet-container {
+    
+            .action-sheet-group {
+                background-color: white !important;
+    
+                .action-sheet-title {
+                    padding: unset;
+                    text-align: center;
+                    width: 100%;
+                    padding: 15px 20px;
+                    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+                    margin: unset;
+    
+                    &.action-sheet-has-sub-title {
+                        font-size: 16px;
+                        font-weight: 500;
+                        color: map-get($colors, "dark");
+                        
+                        .action-sheet-sub-title {
+                            margin-top: 5px;
+                            text-align: center;
+                            padding: unset;
+                            font-size: 12px;
+                            font-weight: 400;
+                            color: map-get($colors, "custom-gray");
+                        }
+    
+                    }
+    
+                }
+    
+                &.action-sheet-group-cancel {
+                    border-top: 1px solid rgba(0, 0, 0, 0.1);
+                }
+    
+                button.action-sheet-button {
+                    padding: unset;
+                    margin: unset;
+                    height: calc(42px + 6px); //espaçamento no height ao invés de margin por conta do ripple effect
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    padding: 0px 20px;
+                    margin: unset;
+
+                    &, &::after {
+                        background: map-get($colors, "background-light") !important;
+                    }
+
+                    &.action-sheet-selected, &.action-sheet-selected::after {
+                        background: rgba(0, 0, 0, 0.05) !important;
+                    }
+
+                    &.ion-activated, &.ion-activated::after {
+                        background: rgba(0, 0, 0, 0.03) !important;
+                    }
+
+                    span.action-sheet-button-inner {
+                        font-weight: 400;
+                        font-size: 14px;
+                        color: map-get($colors, "dark");
+
+                        ion-icon.action-sheet-icon {
+                            margin: 0px 15px 0px 0px;
+                            font-size: 24px;
+                            color: map-get($colors, "dark");
+                        }
+
+                    }
+    
+                }
+    
+            }
+    
+        }
+    
+    }
+
+}

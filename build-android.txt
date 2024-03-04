@@ -1,0 +1,23 @@
+# Copie e execute o bloco abaixo de uma vez no terminal :)
+# Versão do node recomendada: 20
+# openjdk-17-jdk
+#-----------------------------------------------------------------------
+
+#Comados para LINUX
+
+rm -rf node_modules/ package-lock.json &&
+rm -rf android/ ios/ resources/android/icon.png resources/android/splash.png resources/ios/ &&
+npm install &&
+npx jetifier &&
+
+ionic cap add android &&
+cordova-res android --skip-config --copy &&
+cp android/app/src/main/res/mipmap-hdpi/ic_launcher.png android/app/src/main/res/drawable/ &&
+echo -e "\nandroid.enableJetifier=true" >> android/gradle.properties &&
+
+ionic cap sync &&
+npx trapeze run config.yaml --android-project android &&
+ionic cap build android --prod --release --no-open &&
+cd android && ./gradlew assembleRelease && cd ..
+
+#-----------------------------------------------------------------------

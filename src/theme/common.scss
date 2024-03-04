@@ -1,0 +1,204 @@
+//div, h1, h2, h3, h4, h5, h6, p, span, small, i, label, a, th, form {
+* {
+    color: map-get($colors, "dark");
+
+    &.primary {
+        color: map-get($colors, "primary") !important;
+    }
+
+    &.success {
+        color: map-get($colors, "success") !important;
+    }
+
+    &.text-primary {
+        color: map-get($colors, "text-primary") !important;
+    }
+
+    &.secondary {
+        color: map-get($colors, "secondary") !important;
+    }
+
+    &.danger {
+        color: map-get($colors, "danger") !important;
+    }
+
+    &.warning {
+        color: map-get($colors, "warning") !important;
+    }
+
+    &.gray {
+        color: map-get($colors, "text-gray") !important;
+    }
+
+    &.light-gray {
+        color: map-get($colors, "light-gray") !important;
+    }
+
+    &.custom-gray {
+        color: map-get($colors, "custom-gray") !important;
+    }
+
+    &.custom-gray-2 {
+        color: map-get($colors, "custom-gray-2") !important;
+    }
+
+    &.custom-gray-3 {
+        color: map-get($colors, "custom-gray-3") !important;
+    }
+
+    &.custom-gray-4 {
+        color: map-get($colors, "custom-gray-4") !important;
+    }
+
+
+    &.underline {
+        text-decoration: underline !important;
+    }
+
+    &.align-left { text-align: left !important; }
+    &.align-center { text-align: center !important; }
+    &.align-right { text-align: right !important;}
+
+    &.align-start {
+        align-items: flex-start !important;
+    }
+
+    /* &.gray {
+        color: map-get($colors, "grayssss") !important;
+    } */
+
+    &.bold-4 { font-weight: 400 !important; }
+    &.bold-5 { font-weight: 500 !important; }
+    &.bold-6 { font-weight: 600 !important; }
+
+    &.mt-auto { margin-top: auto !important; }
+    &.mt-0 { margin-top: 0px !important; }
+    &.mt-1 { margin-top: 1px !important; }
+    &.mt-2 { margin-top: 2px !important; }
+    &.mt-4 { margin-top: 4px !important; }
+    &.mt-5 { margin-top: 4px !important; }
+    &.mt-6 { margin-top: 6px !important; }
+    &.mt-8 { margin-top: 8px !important; }
+    &.mt-10 { margin-top: 10px !important; }
+    &.mt-12 { margin-top: 12px !important; }
+    &.mt-15 { margin-top: 15px !important; }
+    &.mt-16 { margin-top: 16px !important; }
+    &.mt-20 { margin-top: 20px !important; }
+    &.mt-24 { margin-top: 24px !important; }
+    &.mt-25 { margin-top: 25px !important; }
+    &.mt-35 { margin-top: 35px !important; }
+    &.mt-30 { margin-top: 30px !important; }
+    &.mt-40 { margin-top: 40px !important; }
+    &.mt-50 { margin-top: 50px !important; }
+    &.mt-60 { margin-top: 60px !important; }
+    
+    &.mr-auto { margin-right: auto !important; }
+    &.mr-0 { margin-right: 0 !important; }
+    &.mr-5 { margin-right: 5px !important; }
+    &.mr-8 { margin-right: 8px !important; }
+    &.mr-10 { margin-right: 10px !important; }
+    &.mr-15 { margin-right: 15px !important; }
+
+    &.mb-auto { margin-bottom: auto !important; }
+    &.mb-0 { margin-bottom: 0px !important; }
+    &.mb-2 { margin-bottom: 2px !important; }
+    &.mb-4 { margin-bottom: 4px !important; }
+    &.mb-5 { margin-bottom: 5px !important; }
+    &.mb-6 { margin-bottom: 6px !important; }
+    &.mb-8 { margin-bottom: 8px !important; }
+    &.mb-10 { margin-bottom: 10px !important; }
+    &.mb-12 { margin-bottom: 12px !important; }
+    &.mb-14 { margin-bottom: 14px !important; }
+    &.mb-15 { margin-bottom: 15px !important; }
+    &.mb-18 { margin-bottom: 18px !important; }
+    &.mb-20 { margin-bottom: 20px !important; }
+    &.mb-24 { margin-bottom: 24px !important; }
+    &.mb-25 { margin-bottom: 25px !important; }
+    &.mb-30 { margin-bottom: 30px !important; }
+    &.mb-35 { margin-bottom: 35px !important; }
+    &.mb-40 { margin-bottom: 40px !important; }
+
+    &.ml-auto { margin-left: auto !important; }
+    &.ml-0 { margin-left: 0 !important; }
+    &.ml-5 { margin-left: 5px !important; }
+    &.ml-8 { margin-left: 8px !important; }
+    &.ml-10 { margin-left: 10px !important; }
+    &.ml-15 { margin-left: 15px !important; }
+
+    &.font-12 { font-size: 12px !important; }
+    &.font-14 { font-size: 14px !important; }
+    &.font-16 { font-size: 16px !important; }
+    &.font-18 { font-size: 18px !important; }
+    &.font-20 { font-size: 20px !important; }
+    &.font-22 { font-size: 22px !important; }
+    &.font-24 { font-size: 24px !important; }
+
+    &.p-0 { padding: 0px !important; }
+
+}
+
+.d-none { display: none !important; }
+.d-flex { display: flex !important; }
+    
+.hide { opacity: 0 !important; }
+
+.limit-width {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+b, strong {
+    font-weight: 500 !important;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-center {
+    justify-content: center !important;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.separation-border {
+    
+    &.border-top {
+        border-top: 1px solid map-get($colors, "light-gray");
+    }
+
+    &.border-bottom {
+        border-bottom: 1px solid map-get($colors, "light-gray");
+    }
+
+}
+
+.no-wrap {
+    white-space: nowrap;
+}
+
+.max-content {
+    min-width: max-content;
+}
+
+.lowercase {
+    text-transform: lowercase !important;
+}
+
+.uppercase {
+    text-transform: uppercase !important;
+}
+
+.capitalize {
+    text-transform: capitalize !important;
+}
+
+.uppercase-first {
+
+    &::first-letter {
+        text-transform: uppercase !important;
+    }
+
+}

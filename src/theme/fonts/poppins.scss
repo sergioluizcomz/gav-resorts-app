@@ -1,0 +1,58 @@
+@font-face {
+	font-family: "Poppins";
+	font-style: normal;
+	font-weight: 100;
+	src: url($font-path + "/poppins/Poppins-Thin.eot") format("eot"),
+		 url($font-path + "/poppins/Poppins-Thin.ttf") format("ttf"),
+		 url($font-path + "/poppins/Poppins-Thin.woff") format("woff"),
+		 url($font-path + "/poppins/Poppins-Thin.woff2") format("woff2")
+}
+@font-face {
+	font-family: "Poppins";
+	font-style: normal;
+	font-weight: 200;
+	src: url($font-path + "/poppins/Poppins-ExtraLight.eot") format("eot"),
+		 url($font-path + "/poppins/Poppins-ExtraLight.ttf") format("ttf"),
+		 url($font-path + "/poppins/Poppins-ExtraLight.woff") format("woff"),
+		 url($font-path + "/poppins/Poppins-ExtraLight.woff2") format("woff2")
+}
+
+@font-face {
+	font-family: "Poppins";
+	font-style: normal;
+	font-weight: 300;
+	src: url($font-path + "/poppins/Poppins-Light.eot") format("eot"),
+		 url($font-path + "/poppins/Poppins-Light.ttf") format("ttf"),
+		 url($font-path + "/poppins/Poppins-Light.woff") format("woff"),
+		 url($font-path + "/poppins/Poppins-Light.woff2") format("woff2")
+}
+
+@font-face {
+	font-family: "Poppins";
+	font-style: normal;
+	font-weight: 400;
+	src: url($font-path + "/poppins/Poppins-Regular.eot") format("eot"),
+		 url($font-path + "/poppins/Poppins-Regular.ttf") format("ttf"),
+		 url($font-path + "/poppins/Poppins-Regular.woff") format("woff"),
+		 url($font-path + "/poppins/Poppins-Regular.woff2") format("woff2")
+}
+
+@font-face {
+	font-family: "Poppins";
+	font-style: normal;
+	font-weight: 500;
+	src: url($font-path + "/poppins/Poppins-Medium.eot") format("eot"),
+		 url($font-path + "/poppins/Poppins-Medium.ttf") format("ttf"),
+		 url($font-path + "/poppins/Poppins-Medium.woff") format("woff"),
+		 url($font-path + "/poppins/Poppins-Medium.woff2") format("woff2")
+}
+
+@font-face {
+	font-family: "Poppins";
+	font-style: normal;
+	font-weight: 600;
+	src: url($font-path + "/poppins/Poppins-Bold.eot") format("eot"),
+		 url($font-path + "/poppins/Poppins-Bold.ttf") format("ttf"),
+		 url($font-path + "/poppins/Poppins-Bold.woff") format("woff"),
+		 url($font-path + "/poppins/Poppins-Bold.woff2") format("woff2")
+}

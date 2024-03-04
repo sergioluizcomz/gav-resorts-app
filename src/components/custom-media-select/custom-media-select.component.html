@@ -1,0 +1,47 @@
+<div class="custom-input-wrapper">
+	<div class="label-group">
+		<label *ngIf="onlyView">
+			Fotos ({{ modalImages.length }})
+		</label>
+		
+		<label *ngIf="!onlyView && minImages == 0 && (!modalImages || modalImages.length === 0)">
+			Fotos (Selecione até {{ maxImages }} {{ maxImages > 1 ? "imagens" : "imagem" }})
+		</label>
+
+		<label *ngIf="!onlyView && minImages > 0 && (!modalImages || modalImages.length === 0)">
+			Fotos (Selecione entre {{ minImages }} a {{ maxImages }} {{ maxImages > 1 ? "imagens" : "imagem" }})
+		</label>
+
+		<label *ngIf="!onlyView && (modalImages && modalImages.length > 0)">
+			Fotos ({{ modalImages.length }} de {{ maxImages }})
+		</label>
+	</div>
+
+	<div class="media-input-wrapper">
+		<button *ngIf="!onlyView" type="button" ion-button class="btn-add-media mr-10" (click)="openImageModeSelect()">
+			<svg-icon src="../../assets/imgs/icons/media-add.svg" class="custom-icon custom-gray-4"></svg-icon>
+			<span class="custom-gray-4 font-12">Selecionar</span>
+		</button>
+
+		<swiper-container *ngIf="modalImages && modalImages.length > 0" slidesPerView="2.5" spaceBetween="10">
+			<swiper-slide *ngFor="let item of modalImages; let i = index" (click)="openImageModeSelect(i)">
+				<img [src]="item" alt="">
+
+				<!-- Apenas para facilitar a experiência do usuário -->
+				<div class="media-position-index">{{ i+1 }}</div>
+
+				<!-- Apenas para facilitar a experiência do usuário -->
+				<button type="button" class="btn-handle-media">
+					<svg-icon src="../../assets/imgs/icons/{{ onlyView ? 'eye-open' : 'pencil'}}.svg" class="custom-icon"></svg-icon>
+				</button>
+			</swiper-slide>
+		</swiper-container>
+	</div>
+
+	<div *ngIf="!onlyView" class="info-wrapper mt-8">
+		<div class="info-message">
+			<i class="fal fa-circle-question"></i>
+			<span>Adicione PNG/JPG com tamanho até 5 MB</span>
+		</div>
+	</div>
+</div>

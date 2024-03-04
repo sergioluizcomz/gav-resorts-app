@@ -1,0 +1,79 @@
+<ion-content padding class="contact-form-page">
+
+	<custom-header
+	title="Cadastrar novo Contato"
+	subtitle="Preencha os campos abaixo para {{ contact ? 'realizar a atualização deste contato' : 'realizar o cadastro de um novo contato' }}."
+	[modal]="true">
+	</custom-header>
+
+	<div class="page-wrapper limit-width">
+		
+		<div *ngIf="!errorMessage">
+			<form [customForm]="form" *ngIf="form" [formGroup]="form" class="custom-form-wrapper">
+		
+				<custom-input
+				[fc]="form.get('name')"
+				label="Nome"
+				type="text"
+				placeholder="Digite o nome completo"
+				></custom-input>
+
+				<custom-input
+				[fc]="form.get('phone')"
+				label="Celular"
+				type="tel"
+				placeholder="Digite o número de celular"
+				mask="phone"
+				></custom-input>
+
+				<custom-input
+				[fc]="form.get('email')"
+				label="E-mail"
+				type="email"
+				placeholder="Digite o e-mail principal"
+				></custom-input>
+				
+				<custom-media-select [modalImages]="modalImages" [maxImages]="maxImages"></custom-media-select>
+		
+				<div class="custom-buttons-wrapper mt-50">
+					<div class="buttons-line">
+						<button (click)="dismiss()" type="button" class="custom-button-md outline half">
+							<span>Voltar</span>
+						</button>
+
+						<button (click)="submit()" type="submit" class="custom-button-md primary half">
+							<span>Confirmar</span>
+						</button>
+					</div>
+				</div>
+				
+			</form>
+		</div>
+
+		<div class="custom-message-wrapper" *ngIf="errorMessage">
+
+            <div class="header-wrapper">
+				<div class="illustration-wrapper">
+                    <img src="../../../assets/imgs/illustrations/sorry.svg">
+                </div>
+            </div>
+    
+            <div class="content-wrapper">
+                <h1 class="primary bold-6 align-center">Atenção!</h1>
+				<p class="align-center">Não foi possível {{ contact ? 'atualizar' : 'cadastrar' }} este contato no momento.</p>
+				<p class="align-center" [innerHTML]="errorMessage"></p>
+            </div>
+
+			<div class="custom-buttons-wrapper mt-40">
+				<div class="buttons-line">
+					<button (click)="errorMessage = null" type="button" class="custom-button-md primary full">
+						<span>Tentar novamente</span>
+					</button>
+				</div>
+			</div>
+    
+        </div>
+		
+	</div>
+
+</ion-content>

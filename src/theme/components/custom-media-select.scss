@@ -1,0 +1,88 @@
+.custom-input-wrapper {
+
+    .media-input-wrapper {
+        display: flex;
+        align-items: flex-start;
+
+        > button.btn-add-media {
+            border: 1px solid map-get($colors, "light-gray");
+            background-color: #fff;
+            border-radius: 8px;
+            width: 100px;
+            min-width: 100px;
+            height: 100px;
+            min-height: 100px;
+            padding: 6px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        > swiper-container {
+            width: 100%;
+
+            swiper-slide {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100px !important;
+                height: 100px !important;
+                box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+                overflow: hidden;
+                background-color: #fff;
+                border-radius: 8px;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+
+                div.media-position-index {
+                    position: absolute;
+                    bottom: 6px;
+                    left: 6px;
+                    z-index: 5;
+                    color: #fff;
+                    text-shadow: $main-text-shadow;
+                    font-size: 14px;
+                    font-weight: 500;
+                }
+
+                button.btn-handle-media {
+                    background: map-get($colors, "primary");
+                    position: absolute;
+                    bottom: 6px;
+                    right: 6px;
+                    z-index: 5;
+                    width: 28px;
+                    height: 28px;
+                    border-radius: 6px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+                    overflow: hidden;
+
+                    .custom-icon {
+                        width: 12px;
+                        height: 12px;
+                
+                        svg path {
+                            stroke: map-get($colors, "light") !important;
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+}
